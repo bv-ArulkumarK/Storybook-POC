@@ -11,15 +11,8 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary'],
-    },
-    size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
-    },
-    disabled: {
-      control: 'boolean',
-    },
+      options: ['primary', 'secondary'],
+    }
   },
 } satisfies Meta<typeof Button>;
 
@@ -37,33 +30,5 @@ export const Secondary: Story = {
   args: {
     label: 'Click me',
     variant: 'secondary',
-  },
-};
-
-export const Tertiary: Story = {
-  args: {
-    label: 'Click me',
-    variant: 'tertiary',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    label: 'Large Button',
-    size: 'large',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    label: 'Small Button',
-    size: 'small',
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    label: 'Disabled Button',
-    disabled: true,
   },
 };
