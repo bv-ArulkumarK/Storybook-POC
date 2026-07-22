@@ -1,11 +1,12 @@
 import React from 'react';
-
+// test
 export interface ButtonProps {
   label: string;
   onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'tertiary';
   size?: 'small' | 'medium' | 'large';
-  disabled?: boolean;
+  disabled?: boolean;  
+  // t
 }
 
 export const Button: React.FC<ButtonProps> = ({
