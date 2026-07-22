@@ -1,8 +1,5 @@
 # Ignore dependencies
 node_modules/
-package-lock.json
-yarn.lock
-
 # Build outputs
 build/
 dist/
