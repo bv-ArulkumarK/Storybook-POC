@@ -1,0 +1,30 @@
+# Ignore dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Build outputs
+build/
+dist/
+*.tsbuildinfo
+
+# Storybook
+.storybook-test-runner/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+.AppleDouble
+.LSOverride
