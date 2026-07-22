@@ -1,7 +1,6 @@
 module.exports = {
   stories: [
-    '../packages/**/*.stories.@(js|jsx|ts|tsx)',
-    '../docs/**/*.mdx'
+    '../packages/**/*.stories.@(js|jsx|ts|tsx)'
   ],
   addons: [
     '@storybook/addon-essentials',
@@ -15,5 +14,19 @@ module.exports = {
   staticDirs: ['../public'],
   docs: {
     autodocs: 'tag'
+  },
+  webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: /\.(ts|tsx)$/,
+      use: [
+        {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true
+          }
+        }
+      ]
+    });
+    return config;
   }
 };
