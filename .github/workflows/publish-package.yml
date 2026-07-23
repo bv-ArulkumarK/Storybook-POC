@@ -1,0 +1,36 @@
+name: Publish UI Components Package
+
+on:
+  push:
+    tags:
+      - 'ui-components-v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: https://npm.pkg.github.com
+          scope: '@storybook-poc'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build package
+        run: npm run build --workspace=packages/ui-components
+
+      - name: Publish package
+        run: npm publish --workspace=packages/ui-components
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
